@@ -1,0 +1,75 @@
+<html>
+<head>
+<script languague = "JavaScript">
+
+var answers = [ "Without a doubt.", "Definitely.", "Absolutely.", "I think, yes.", "Ask again later.", "Don't ask again.", "Not at all.", "Think and ask again.", "Don't count on it.", "It is certain.", "It is decidedly so.", "Most likely.", "I believe no.", "My sources say no.", "Not looking good.", "Signs point to yes.", "Very doubtful." ];
+function random()
+{
+    var rand = -1;
+    var solution = document.getElementById("answer");
+    var userQ = document.getElementById("question");
+   
+    rand = Math.random()*answers.length;
+    rand = Math.floor(rand);
+        
+    if( userQ.value.length == 0) // user hasn't asked question yet
+    {
+        solution.value = "Please ask a question first!"
+    }    
+    else
+    {
+        solution.value = answers[rand];
+        if( rand == 16 )
+        {
+            document.getElementById("player").play();
+        }    
+    }   
+    
+}  
+function reset()
+{
+    //delete the contents of the answer textbox:
+    document.getElementById("answer").value = "";
+    
+}    
+      
+
+</script>
+</head>
+    
+
+<body background="images/blueback.jpg" link="blue" vlink="blue">
+<font color="grey">  
+<center>
+    
+<h1>Magic 8 Ball</h1>
+<br/>
+
+<img src="images/oceanball.jpg" width="200">   
+<br/>
+
+<h3> Ask whatever question you would like into the top box. Click the button below when you are done, and you will see your answer in the second box.
+</h3>
+    
+<input type = “text” size=”80” id = "question" onfocusin = "reset()" /> 
+<br/>
+<br/>
+    
+<input type="button" value="Click here" onClick="random()"/>
+<br/>
+<br/>
+    
+<input type = "text" size="80" id = "answer" readonly = true />  
+    
+<audio src="sounds/clap.mp3" id="player"> </audio>   
+
+<p> <a href="index.html"> Click here to return to my homepage.</a>
+</p>    
+
+</center>
+</font>    
+</body>
+    
+</html>
+
+
