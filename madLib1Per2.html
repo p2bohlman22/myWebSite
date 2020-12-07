@@ -1,0 +1,84 @@
+<html>
+<head> 
+<script language="JavaScript">
+
+var partsOfSpeech = ["a boys name","type of trasportation","a restaurant name","type of food","type of animal","type of car","a body part","a public place","a sport"];
+var answers; 
+var story = ["Living in New York City, there was a boy named ","He went on a","He was hungry so he decided to go to","The boy ordered a","His food was stolen by a","Since it was stolen and he was so hungry he ran after it, but got hit by a","When he got hit he broke his ","His mom picked him up and took him to the", "he was sad that he was hurt because he couldn't play","But the good news is that he can eat ice cream all day long];
+var count = 0;
+
+function promt()
+{
+    document.getElementById("userEnter").style.visibility ="visible";
+    document.getElementById("story").style.visibility ="hidden";
+    document.getElementById("response").value = partsOfspeech[0];
+    
+}
+
+function getWords()
+{
+	alert("hello");
+    var wordBox = document.getElementById("responce");
+    answers[count] =wordBox.value
+    
+    count++;
+    
+    if( count < partOfspeech.length )
+    promt();
+}
+
+function displayStory()
+{
+    alert ("hi");
+    var answer = "";
+	var i = 0;
+    
+    answer = answer + story[0];
+    answer = answer + partsOfspeech[0];
+    
+    answer = answer + story[0];
+    answer = answer + userAnswer[0;
+    answer = answer + story[1];
+    answer = answer + userAnswer[1];
+    answer = answer + story[2];
+    answer = answer + userAnswer[2];
+    answer = answer + story[3];
+    answer = answer + userAnswer[3];
+    answer = answer + story[4];
+    answer = answer + userAnswer[4];
+    answer = answer + story[5];
+    answer = answer + userAnswer[5];
+    answer = answer + story[6];
+    answer = answer + userAnswer[6];
+    answer = answer + story[7];
+    answer = answer + userAnswer[7];
+    answer = answer + story[8];
+    answer = answer + userAnswer[8];
+    answer = answer + story[];
+    answer = answer + userAnswer[9];
+
+	alert(answer)
+    return answer;
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1>
+<input type="button" value="start" onClick="prompts()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:visible;">
+	<p id="message"> Please enter  
+		<div id="userBox" style="position:absolute; left:200; top: 10; visibility:visible;"> 
+			<input type = "text" id="response" value="Type answer here."/>
+			<input type = "button" value="Enter" onclick="displayStory()"
+		</div>
+	</p>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:visible">
+My story goes here. <div>
+
+</body>
+</html>
