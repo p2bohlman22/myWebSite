@@ -2,83 +2,87 @@
 <head> 
 <script language="JavaScript">
 
-var partsOfSpeech = ["a boys name","type of trasportation","a restaurant name","type of food","type of animal","type of car","a body part","a public place","a sport"];
-var answers; 
-var story = ["Living in New York City, there was a boy named ","He went on a","He was hungry so he decided to go to","The boy ordered a","His food was stolen by a","Since it was stolen and he was so hungry he ran after it, but got hit by a","When he got hit he broke his ","His mom picked him up and took him to the", "he was sad that he was hurt because he couldn't play","But the good news is that he can eat ice cream all day long];
+var partsOfSpeech = ["Enter a boys name","Type an animal","Insert a city","Select a number","Insert a type of sports ball","An exclamation word","Enter a place where you like to go","An action word ending in (ing)","Select a movie","Insert a phrase of surprise","Enter an adjective"];
+var answers = new Array(partsOfSpeech.length);
+var story = [" loved to walk his pet ",". He was walking through ",". He walked near a playground when a "," year old girl kicked him. He took out a "," from his back pocket and gave it to her, so she would stop kicking. The girl grabbed it from his hand while screaming '","!' The man was in shock of the weirdness, so he went to a ",". He started  "," but he kept feeling a tug on his leg. He stopped to check and see if anyone was watching him, so he looked by the "," movie set and as he looked down he shouted, '","!'. The "," girl from the playground was holding onto his leg with the ball in her hand. She then told him in her little voice that she just wanted to play fetch with his pet. "];
 var count = 0;
 
-function promt()
+
+function prompt()
 {
-    document.getElementById("userEnter").style.visibility ="visible";
-    document.getElementById("story").style.visibility ="hidden";
-    document.getElementById("response").value = partsOfspeech[0];
-    
+	// if this is the start, display the textbox and hide the story. 
+    document.getElementById("userEnter").style.visibility = "visible";
+
+    // then display the first element of partsOfSpeech in the textbox. 
+    document.getElementById("story").style.visibility = "hidden";
+    document.getElementById("response").value = partsOfSpeech[count];
+
 }
+
 
 function getWords()
 {
-	alert("hello");
-    var wordBox = document.getElementById("responce");
-    answers[count] =wordBox.value
+    var wordBox = document.getElementById("response");
+    answers[count] = wordBox.value;
     
-    count++;
+    count++; //increment count
     
-    if( count < partOfspeech.length )
-    promt();
+    //test if there is another part of speech
+    if( count < partsOfSpeech.length )
+    {
+        prompt();//goes to prompt, runs through, then returns to this function
+    }
+    else //all elements have been added. Time to display the story.
+    {
+        count = 0; //reset so can play again 
+        document.getElementById("story").innerHTML = displayStory(); //replace Latin, or text that will display on page with text that has been stitched together
+        
+    }
 }
 
 function displayStory()
 {
-    alert ("hi");
-    var answer = "";
-	var i = 0;
+	var answer = "";
+	var i;//iterator, iterations again and again
+	
+	// loop to stitch elements of story with elements of answers. 
+	
+	for ( i = 0; i < 11; i++)
+	{
+        answer = answer + answers[i];
+        answer = answer + story[i];
+	}
     
-    answer = answer + story[0];
-    answer = answer + partsOfspeech[0];
     
-    answer = answer + story[0];
-    answer = answer + userAnswer[0;
-    answer = answer + story[1];
-    answer = answer + userAnswer[1];
-    answer = answer + story[2];
-    answer = answer + userAnswer[2];
-    answer = answer + story[3];
-    answer = answer + userAnswer[3];
-    answer = answer + story[4];
-    answer = answer + userAnswer[4];
-    answer = answer + story[5];
-    answer = answer + userAnswer[5];
-    answer = answer + story[6];
-    answer = answer + userAnswer[6];
-    answer = answer + story[7];
-    answer = answer + userAnswer[7];
-    answer = answer + story[8];
-    answer = answer + userAnswer[8];
-    answer = answer + story[];
-    answer = answer + userAnswer[9];
-
-	alert(answer)
-    return answer;
+	// Make the story div visible, and the userEnter div hidden.		
+    document.getElementById("userEnter").style.visibility = "hidden";
+    document.getElementById("story").style.visibility = "visible";
+    return answer; //way of passing information back, going to display answer/picture on webpage OR it is answering a question
+    //a return passes back ONE piece of data
+    //PARAMETERS: the extra information needed for a function to do its job. alert("hello") is a function that needs parameters. The alert function can't work wihtout the information that we want to alert. setTimeout needs a function and delay (in millis) before the call is made.
+    //LOOP ELEMENTS: three elements, a variable set to a starting point, a condition, and a change to that variable. see for loop above.
+    
 }
 
 </script>
 </head>
-<body>
+<body bgcolor="pink" link="blue">
+<font color="purple">
 <center> 
 <h1>My MadLib!</h1>
-<input type="button" value="start" onClick="prompts()"/>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
 </center>
-<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:visible;">
-	<p id="message"> Please enter  
-		<div id="userBox" style="position:absolute; left:200; top: 10; visibility:visible;"> 
-			<input type = "text" id="response" value="Type answer here."/>
-			<input type = "button" value="Enter" onclick="displayStory()"
-		</div>
-	</p>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" onfocusout="getWords()"/>
 </div>
 
-<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:visible">
-My story goes here. <div>
-
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+</div>
+<center>    
+<p> <br/><br/><br/><br/><br/><br/><br/>
+<a href="index.html"> Click here to return to my homepage. </a>
+</p> 
+</center>    
+</font>
 </body>
 </html>
