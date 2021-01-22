@@ -1,0 +1,67 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+var group = ["-- Choose a character --","Edward Cullen", "Bella Swan", "Jacob Black", "Charlie Swan", "Alice Cullen", "Jasper Hale", "Carlisle Cullen", "Jane"];
+
+var facts = ["-- No character selected --","was born in 1901", "drives an orange 1953 Chevy truck", "is a werewolf in the Quileute tribe", "was born and raised in Forks, Washington", "has visions of the future", "served in the Confederate Army", "can resist to human blood making it easy to change people", "has the ability to inflict a mental illusion of burning pain"];
+
+function loadData()
+{
+	var sum = 0;
+	for(var i = 0; i<group.length; i++)
+    {
+        var daList = document.getElementById("character");
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+    }
+}
+
+function start()
+{
+	var names = document.getElementById("character");
+    //alert(names.value);
+    
+    var daIndex = getIndex(names.value)
+    // alert(daIndex);
+    document.getElementById("funFact").value = facts{daIndex};
+    
+}
+
+function getIndex(d)
+{
+    var index = -1;
+    for(var i = 0; i < group.lenght; i++)
+    {
+        if(group[i] == d)
+            index = i;
+    }
+    
+    return index;
+
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()" background="images/forrest.jpeg">
+<center>
+<h1>Twilight Character Fun Facts</h1>
+<a href="index.html"> Click here to return to my homepage. </a>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="character"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
