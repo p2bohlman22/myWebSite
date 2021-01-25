@@ -29,15 +29,16 @@ function start()
     
 }
 
-function getIndex(d)
+function getIndex(d) 
 {
+    
     var index = -1;
-    for(var i = 0; i < group.lenght; i++)
+    for(var i = 0; i < group.length; i++)
     {
         if(group[i] == d)
             index = i;
     }
-    
+    alert(index);
     return index;
 
 }
