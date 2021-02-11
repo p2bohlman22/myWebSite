@@ -1,0 +1,100 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+
+1. Make an array of both questions and answers
+2. Make an if statement so that it displays each element of questions when its asked
+3. Receive the quiz takers answer in the box
+4. Run the code to see if there choice is equal to the index in the answers list
+5. If its wrong or right then connect return to true or false
+6. Alert Correct if return is true
+7. If its false alert Incorrect
+
+*/
+
+var questions = ["How many teams are in the NFL?", "What is the number of Superbowls won by the 49ers?", "What team does Alex Smith play for?", "How old is Tom Brady?", "How many downs are there in football?", "How many points is a field goal worth?", "What does NFL stand for?", "How many points is a touchdown worth?", "In what year was the NFL founded?", "Who is the youngest quaterback to win a Superbowl"];
+
+var answers = ["32 Teams", "5 Superbowls", "The Washigton Football Team", "43 years old", "4 Downs", "3 Points", "National Football League", "6 Points", "1920", "Ben Roethlisberger"];
+
+var index = -1;
+var score = 0;
+
+    
+function displayQuestion()
+{  
+    
+    index = index + 1;
+    if( index > questions.length - 1 )
+    {
+        index = 0;
+    }
+    var answer = document.getElementById("question");
+    answer.value = questions[index];
+}
+    
+function updateScore()
+{
+    var answerT = document.getElementById("answer");
+     var daAnswer = checkAnswer(answerT.value);
+    if ( daAnswer == true )
+    {
+        score = score + 1;
+        alert("Correct");
+    }
+    else if ( daAnswer == false )
+    {
+        alert("The answer is actually  " +answers[index]); 
+    }
+        
+}
+
+    
+function checkAnswer(ans)
+{
+    var answer = -1;
+   if( ans == answers[index] )
+   {
+       answer = true;
+   }
+   else
+   {
+       answer = false;
+   }  
+    return answer;
+}
+
+</script>
+</head>
+<body bgcolor="blue" link="red" vlink = "white"> 
+<font color="white">    
+<center>
+<h1>My Quiz</h1>
+<p>
+    1. To start quiz, press the button below.
+    <br/>
+    2. Type in your answer (with capitalized letters at the being of each word and numbers in numeric form) and hit the button to submit. 
+    <br/>
+    3. Hit the button again to receive a new question.
+    <br/>
+</p>    
+<a href="index.html"> Click here to return to my homepage.</a>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<input id="question" type="text" size="70" readonly = true/>	</td>
+	</tr>
+	<tr height = "12"><td></td>
+	</tr>
+	<tr>
+		<td>	<input id="answer" type="text" size="70" onfocusout="updateScore()"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="Next Question" onclick="displayQuestion()"/>
+</center>
+</font>
+</body>
+</html>
