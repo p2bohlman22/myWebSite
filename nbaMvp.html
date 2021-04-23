@@ -1,0 +1,85 @@
+<html>
+<head> 
+<script language="JavaScript">
+    
+var years = ["-- Choose year --","2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"];
+
+var mvps =["-- Select Player --", "Lebron James", "Derrick Rose", "Lebron James", "Lebron James", "Kevin Durant", "Stephen Curry", "Stephen Curry", "Russel Westbrook", "James Harden", "Giannis Antetetokounmp", "Giannis Antetetokounmp"];
+              
+var images = ["images/trophy.png","images/lebron.jpg", "images/rose.jpeg", "images/lebron2.jpg","images/lebron3.jpeg", "images/durant.jpg", "images/curry.jpg", "images/curry2.jpg", "images/russell.jpg", "images/harden.jpg", "images/giannis.jpg", "images/giannis2.jpg"];
+
+
+function dropList() 
+{
+   	for(var i = 0; i < years.length; i++)
+    {
+        var list = document.getElementById("drop");
+  		var option = document.createElement("option");
+  		option.text = years[i];
+  		list.add(option);
+    }
+}    
+    
+    
+function display()
+{
+	var players = document.getElementById("drop");
+    var daIndex = acquire(players.value); 
+   if( daIndex > -1) 
+   {    
+    document.getElementById("Player").value = mvps [daIndex];
+    var img2 = document.getElementById("picFrame");
+    img2.src = images[daIndex];  
+       
+   }    
+   else
+   {
+       alert("Incorrect, try again!");
+   }
+}
+    
+function acquire(f) 
+{
+   var userAnswer = -1; 
+   for( var i = 0; i < years.length; i++ )
+   {
+       if( years[i] == f )
+       {
+           userAnswer = i;
+       }    
+   }    
+   return userAnswer;
+}
+    
+</script>    
+</head>    
+<body onload="dropList()" background="images/court2.jpg"> 
+<font color="red">    
+<center>
+
+<h1>The Most Valuable Players of the NBA from 2010-2020</h1>  
+<img id="picFrame" src="images/trophy.png" width="225"/>
+
+
+
+<br/><br/>
+    
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="drop"></select>	</td>
+		<td>	<input id="Player" type="text" size="40"/> </td>
+	</tr>
+</table>
+    
+<br/>
+    
+<input type="button" value="Find MVP" onclick="display()"/>
+    <br/>
+ <p>      
+    
+    
+</center>    
+</font>
+</body>    
+</html>
+
